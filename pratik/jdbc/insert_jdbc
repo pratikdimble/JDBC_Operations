@@ -1,0 +1,83 @@
+package pratik.jdbc;
+
+import java.sql.Statement;
+import java.io.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class insert_jdbc {
+
+	public static void main(String[] args) {
+		
+		Connection con=null;
+		Statement st=null;
+		BufferedReader br=null;
+		
+		try {
+          //load and register the driver
+				Class.forName("<Driver_Class>");
+				//establish connection between Java Application abd Database
+        con=DriverManager.getConnection("<Driver_URL>","<database username>","<databse password>");
+				st=con.createStatement(); //creaate the statement
+        //buffered reader for user input
+				br=new BufferedReader(new InputStreamReader(System.in));
+
+				while(true) //for inserting mulitple rows
+				{
+            //taking user inputs
+					System.out.print("--------Enter Details--------\n");
+					System.out.print("\tEnter ID: ");
+					int id=Integer.parseInt(br.readLine());
+					System.out.print("\tEnter Name: ");
+					String name=br.readLine();
+					System.out.print("\tEnter Salary: ");
+					float sal=Float.parseFloat(br.readLine());
+          
+					//insert into emp values(111,'Abc',2235);
+          //write the query for insertion and execute it
+					String sql="Insert into newemp values("+id+",'"+name+"',"+sal+")";
+						st.executeUpdate(sql);
+//insert one more row						
+						System.out.print("\n\tAdd One More Row(y/n): ");
+						String choice=br.readLine();
+						
+						if(choice.equals("y") || choice.equals("Y"))
+						{
+							rowcount+=rowcount;
+							continue;
+						}else
+						{
+							break;
+						}
+							
+				}//while close
+//print how many rows are inserted
+System.out.print("\n\t "+rowcount+" Row inserted Successfully");
+				
+			
+		}//try close 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally
+		{
+			try			{
+				//close the resources
+				br.close();
+				st.close();
+				con.close();
+			}
+			catch (Exception e)//if any exception occurs catch block catches it and print
+			{
+				e.printStackTrace();
+			}
+			
+		}//finally close
+
+	}//main() close
+
+}//class close
+
+
+
+//ANY DETAILS SEE README*********
