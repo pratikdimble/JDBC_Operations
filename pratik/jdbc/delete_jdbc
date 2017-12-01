@@ -5,7 +5,7 @@ import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class update_jdbc {
+public class delete_jdbc {
 
 	public static void main(String[] args) {
 		
@@ -32,7 +32,7 @@ public class update_jdbc {
           
           //delete operation
 					//delete from emp where(ID=1);
-					String sql="Delete from emp where(ID="+id+")";
+					String sql="Delete from newemp where(ID="+id+")";
 						st.executeUpdate(sql);    //exeecute operation
 										
 						System.out.print("\n\tDelete One More Row(y/n): ");
