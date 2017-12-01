@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.DriverManager;
 
-public class delete_jdbc {
+public class display_jdbc {
 
 	public static void main(String[] args) {
 		
