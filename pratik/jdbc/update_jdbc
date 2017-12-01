@@ -32,8 +32,8 @@ public class update_jdbc {
 					System.out.print("\tEnter Salary: ");
 					float sal=Float.parseFloat(br.readLine());
           
-					//update emp set salary=salary+500 where(salary<10000);
-					String sql="Update emp set salary=salary+"+bonus+" where(salary<"+sal+")";
+					//update newemp set salary=salary+500 where(salary<10000);
+					String sql="Update newemp set salary=salary+"+bonus+" where(salary<"+sal+")";
 						st.executeUpdate(sql);
 						
 						
