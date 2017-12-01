@@ -1,0 +1,66 @@
+package pratik.jdbc;
+
+import java.sql.Statement;
+import java.io.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.DriverManager;
+
+public class delete_jdbc {
+
+	public static void main(String[] args) {
+		
+		Connection con=null;
+		Statement st=null;
+    ResultSet rs=null;
+		BufferedReader br=null;
+		
+		try {
+          //load and register the driver
+				Class.forName("<Driver_Class>");
+				//establish connection between Java Application abd Database
+        con=DriverManager.getConnection("<Driver_URL>","<database username>","<databse password>");
+				st=con.createStatement(); //creaate the statement
+        
+      String sql="select * from newemp";
+			st=con.createStatement();
+      
+			rs=st.executeQuery(sql);    //Resultset for displaying or holding the table records
+      
+			System.out.println("\n\n\t ID \t Name \t Salary");
+			System.out.println("\t================================================== ");
+      //display the records row by row
+			while(rs.next())
+			{
+				System.out.print("\n\t"+rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getFloat(3));
+			}
+			System.out.println("\n\t=================================================== ");
+				
+			
+		}//try close 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally
+		{
+			try			{
+				//close the resources
+				br.close();
+				st.close();
+        rs.close();
+				con.close();
+			}
+			catch (Exception e)//if any exception occurs catch block catches it and print
+			{
+				e.printStackTrace();
+			}
+			
+		}//finally close
+
+	}//main() close
+
+}//class close
+
+
+
+//MORE DETAILS SEE README*********
