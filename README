@@ -1,0 +1,50 @@
+****************************
+*-->Install eclipse IDE and java
+*-->Install Oracle Database
+*-->Open Eclise IDE and set the build path i.e ojdbc6.jar or ojdbc14.jar
+
+		path for ojdbc6 or ojdbc14 jars: \oraclexe\app\oracle\product\11.2.0\server\jdbc\lib\ojdbc6.jar or ojdbc14.jar
+	
+	open Eclipse IDE Righr click on project->Build path->configure bulild path->Liabraries->Add external jars-><select jars>apply->apply and close..
+*************************************************************************************************************
+	*************IN JDBC Programs I Used This Table as Example ***************
+
+SQL> CREATE TABLE NEWEMP(ID NUMBER PRIMARY KEY,NAME VARCHAR2(15),SALARY FLOAT);
+
+Table created.
+********************************
+SQL> DESC NEWEMP;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                        NOT NULL NUMBER
+ NAME                                               VARCHAR2(15)
+ SALARY                                             FLOAT(126)
+**************************************************************
+SQL> SELECT * FROM NEWEMP;
+
+no rows selected
+*************************************************
+*******Run the code on Eclipse Output Console----->
+--------Enter Details--------
+	Enter ID: 1
+	Enter Name: pratik
+	Enter Salary: 50000
+
+	Add One More Row(y/n): y
+--------Enter Details--------
+	Enter ID: 2
+	Enter Name: Rohit
+	Enter Salary: 60000
+
+	Add One More Row(y/n): n
+
+	 2 Row inserted Successfully
+**************************************************************	 
+	 SQL> SELECT * FROM NEWEMP;
+
+        ID NAME                SALARY
+---------- --------------- ----------
+         1 pratik               50000
+         2 Rohit                60000
+
+*****************************************************************
